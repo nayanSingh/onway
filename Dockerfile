@@ -1,6 +1,9 @@
-FROM openjdk:8-jdk-alpine
-WORKDIR /onway
-VOLUME /tmp
-ARG DEPENDENCY=target
+FROM java:8-jdk-alpine
 
-ENTRYPOINT ["java","-cp","app:src/*","com.cab.onway.OnwayApplication"]
+COPY ./target/onway-0.0.1-SNAPSHOT.jar /usr/app/
+
+WORKDIR /usr/app
+
+RUN sh -c 'touch onway-0.0.1-SNAPSHOT.jar'
+
+ENTRYPOINT ["java","-jar","onway-0.0.1-SNAPSHOT.jar"]
