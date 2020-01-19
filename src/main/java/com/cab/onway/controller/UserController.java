@@ -49,7 +49,7 @@ public class UserController {
 
 	@RequestMapping("/user/get")
 	public String index() {
-		return "Hello User";
+		return "Hello Nayan";
 	}
 
 }
